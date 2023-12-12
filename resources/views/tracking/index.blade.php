@@ -19,19 +19,20 @@
 
     <main class="bg-light">
         <div class="container">
-            <div class="row">
+            <div class="row py-5">
                 @foreach ($clients as $item)
-                    <div class="col-3">
-                        <div class="card">
+                    <div class="col-4 g-3">
+                        <div class="card h-100 p-2">
                             <div class="card-header">
-                                <p>customer: {{ $item['client_id'] }}</p>
-                                <p>hours: {{ $item['total_hours'] }}</p>
+                                <p>customer: {{ $item['client_id'] }} | hours: {{ $item['total_hours'] }}</p>
                             </div>
-                            <ul>
-                                @foreach ($item['total_hours_per_employee'] as $employee => $hour)
-                                    <li>{{ $employee }} - {{ $hour }}</li>
-                                @endforeach
-                            </ul>
+                            <div class="card-body">
+                                <ul>
+                                    @foreach ($item['total_hours_per_employee'] as $employee => $hour)
+                                        <li>Employee: {{ $employee }} - time spent: {{ $hour }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 @endforeach
